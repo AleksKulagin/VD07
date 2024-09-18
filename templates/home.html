@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Главная</h1>
+    {% if current_user.is_authenticated %}
+        <p>И снова, ЗДРАВСТВУЙТЕ!, {{ current_user.username }}!</p>  <!-- Приветствие для вошедших пользователей -->
+    {% else %}
+        <p>Добро пожаловать! Пожалуйста <a href="{{ url_for('login') }}">авторизуйтесь</a> или <a href="{{ url_for('register') }}">зарегистрируйтесь</a>.</p>
+    {% endif %}
+{% endblock %}
